@@ -3,14 +3,32 @@ const expandAddNewTask = (event) => {
   event.target.nextElementSibling.classList.toggle("hide");
 };
 
-const addNewTask = (event) => {
+const addNewTask = async (event) => {
   if (event.type === "click") {
     event.target.parentElement.previousElementSibling.classList.toggle("hide");
     event.target.parentElement.classList.toggle("hide");
     return 0;
   }
-
   event.preventDefault();
+
+  let name = document.getElementById("taskName").value;
+  let description = document.getElementById("taskDescription").value;
+
+  const zahtijev = await fetch("http://127.0.0.1:3000/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: JSON.stringify({ name: name, description: description }),
+  });
+  const data = await zahtijev.json();
+
+  showTasks(data.data);
+
+  event.target.reset();
+  event.target.classList.toggle("hide");
+  event.target.previousElementSibling.classList.toggle("hide");
 };
 
 const showTasks = (tasks) => {

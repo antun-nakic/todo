@@ -25,6 +25,15 @@ fastify.get("/", function (request, reply) {
   reply.send({ data: todos });
 });
 
+fastify.post("/", function (request, reply) {
+  let noviTodo = {
+    name: request.body.name,
+    description: request.body.description,
+  };
+  todos.push(noviTodo);
+  reply.send({ data: todos });
+});
+
 //počinjemo slušati dolazne zahtijeve na portu 3000
 const start = async () => {
   try {
