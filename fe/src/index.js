@@ -4,14 +4,31 @@ const expandAddNewTask = (event) => {
 };
 
 const addNewTask = (event) => {
+  if (event.type === "click") {
+    event.target.parentElement.previousElementSibling.classList.toggle("hide");
+    event.target.parentElement.classList.toggle("hide");
+    return 0;
+  }
+
   event.preventDefault();
+};
 
-  console.log(event.target.elements);
-  const formElem = document.querySelector("form");
+const showTasks = (tasks) => {
+  const myTasks = document.getElementById("myTasks");
 
-  const formData = new FormData(formElem);
+  let newHTML = "<ul>";
+  tasks.forEach((task) => {
+    newHTML += `<li><b>${task.name}</b> - <i>${task.description}</i></li>`;
+  });
 
-  console.log(formData);
+  newHTML += "</ul>";
 
-  console.log(formData.get("radnja"));
+  myTasks.innerHTML = newHTML;
+};
+
+const init = async () => {
+  const response = await fetch("http://127.0.0.1:3000/");
+  const data = await response.json();
+
+  showTasks(data.data);
 };
