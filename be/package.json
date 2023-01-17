@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node src/app.js"
+  },
   "type": "module",
   "dependencies": {
     "@fastify/cors": "^8.2.0",
