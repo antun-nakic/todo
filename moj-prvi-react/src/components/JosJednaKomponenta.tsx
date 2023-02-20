@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 const JosJednaKomponenta = () => {
   const clubs = ['Hajduk','Dinamo','Šibenik','Osijek'];
@@ -13,6 +14,8 @@ const JosJednaKomponenta = () => {
 
   return (
     <>
+      <Link to="/">Link na homepage (ispravan SPA način)</Link><br/>
+      <a href="/">Link na homepage (na krivi nacin)</a>
       <div> JosJednaKomponenta {(new Date()).toDateString()} </div>
       <p>jkdsghjkfsdgh</p>
       <h1>Najbolji klub u HNLu je {clubs[slucajniBroj]}</h1>
@@ -22,6 +25,7 @@ const JosJednaKomponenta = () => {
       {clubs[slucajniBroj] === "Hajduk" && <p>Lažu te gori ovo za Hajduk!</p>}
 
       {"hfdghdfghjdgfhjdgfd" ? "ternarni je prosao" : "ternarni nije prosao"}
+      
     </>
   )
 }
