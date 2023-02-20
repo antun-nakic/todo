@@ -5,6 +5,8 @@ import logo from './logo.svg';
 import MojaPrvaKomponenta from './MojaPrvaKomponenta';
 import UspijesniBotun from './components/common/UspijesniBotun';
 import MojaPrvaKlasnaKomponenta from './components/MojaPrvaKlasnaKomponenta';
+import PametnaKlasnaKompnenta from './components/PametnaKlasnaKompnenta';
+import { GrbVjezba } from './components/GrbVjezba';
 import './App.css';
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header" onClick={()=>{console.log(`tu sam ${textZaSlanje}`);setTextZaSlanje(textZaSlanje+"d")}}>
+        <GrbVjezba/>
+        <PametnaKlasnaKompnenta message='Broj klikova'/>
         <MojaPrvaKlasnaKomponenta posebanText="ajde dodaj ovo extra na kraj"/>
         <Link to="/nasaKomponenta">Link na drugi page (ispravan SPA način)</Link>
         <a href="/nasaKomponenta">Link na drugi page (na krivi nacin)</a>
