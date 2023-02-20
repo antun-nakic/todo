@@ -1,22 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from "react-router-dom";
 
 import logo from './logo.svg';
 import MojaPrvaKomponenta from './MojaPrvaKomponenta';
 import UspijesniBotun from './components/common/UspijesniBotun';
+import MojaPrvaKlasnaKomponenta from './components/MojaPrvaKlasnaKomponenta';
 import './App.css';
 
 function App() {
+  const [textZaSlanje, setTextZaSlanje] = useState("Potvrdi registraciju");
+  const [stanje2, setStanje2] = useState("Drugo stanje");
+
   let mojeIme = "Antun Nakić"
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header" onClick={()=>{console.log(`tu sam ${textZaSlanje}`);setTextZaSlanje(textZaSlanje+"d")}}>
+        <MojaPrvaKlasnaKomponenta posebanText="ajde dodaj ovo extra na kraj"/>
         <Link to="/nasaKomponenta">Link na drugi page (ispravan SPA način)</Link>
         <a href="/nasaKomponenta">Link na drugi page (na krivi nacin)</a>
         <MojaPrvaKomponenta />
-        <UspijesniBotun text="Potvrdi registraciju" velicinaFonta="24px" />
-        <UspijesniBotun text="Next" />
+        <UspijesniBotun text={textZaSlanje} velicinaFonta="24px" />
+        <div onClick={()=>setStanje2(stanje2+"1")}>
+          <UspijesniBotun text={stanje2} />
+        </div>
         <UspijesniBotun text="Finish" />
         <UspijesniBotun text="Finished yesterday" xyz='dghjksdgj'/>
         <UspijesniBotun text="Finished yesterday" xyz='dghjksdgj' zzz={{a:84}}/>
