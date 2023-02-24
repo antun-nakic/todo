@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import JosJednaKomponenta from "../components/JosJednaKomponenta";
 import DemoFlowOfData from "../components/DemoFlowOfData";
+import UseEffectDemo from "../components/UseEffectDemo";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
   {
     path: "/demonstracijaTokaPodataka",
     element: <DemoFlowOfData />,
+  },
+  {
+    path: "/useEffectDemo",
+    element: <UseEffectDemo />,
   },
   {
     path: "/nasaKomponenta",
